@@ -1,0 +1,73 @@
+git somecommand (-p|--patch) [<id>] [--] [<paths>...]
+
+- or -- - set a flag
+
+| represents or - eg above could use either -p or --patch
+
+[] - optional items surrounded by square brackets.
+
+<> - placeholders surrounded by angle brackets
+
+() - grouping - to disambiguate - ie above saying you must set either -p or --patch flag
+
+-- - disambiguate - above to clarify you are specifying a path
+
+... - multiple occurrences are possible.
+
+git version 2.16.3.window.1
+
+user = Angus Comber
+email = angus@iteloffice.com
+editor - set to emacs
+
+
+
+working tree - view and edit files to prepare for next commit.
+
+staging area / index - contains a list of files you want to next commit.
+
+git add - to add files to the staging area.
+
+
+myproject/
+ working tree
+ /.git
+
+.git is hidden dir - staging area and local repo located here.
+
+working tree - files being prepared for next commit
+
+if yo delete .git folder - delete local repo and staging area
+
+
+git add . - adds all untracked files
+
+be careful with git add . - can easily drag n files you don't want in commit
+
+
+
+..
+
+create a remote repository
+
+bitbucket, github, on site storage
+
+a remore repo is a bare repo.  has no working tree or staging area.
+
+remore repo names end in .git by convention
+
+on remote storage / server, git init --bare
+
+
+or for github go onto github and create a new repository.
+
+on github you can't do the git init --bare I don't think so you setup first there, and then clone it to local
+
+git clone https://github.com/arcomber/git_course.git
+
+
+
+
+
+
+
