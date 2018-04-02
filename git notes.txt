@@ -205,6 +205,62 @@ tags are not automatically pushed to remote repositories.
 References
 ----------
 
+branch labels implemented as references.  branch v branch label.
+
+branch is implemented as a branch label at tip.
+
+so in git branches are simple to implement and use very few resources.  just have a label pointing to tip of branch and then all nodes point to parent - until you eventually get to root of branch.
+
+
+HEAD points to the current commit
+
+
+
+~ or ~1 = parent
+
+~2 or ~~ = parent's parent
+
+caret ^ - show parent 1 or parent 2
+
+example:
+
+git show master^ - shows parent - same as using ~
+
+but can also do git show master^2 - but only works if there is a 2nd parent.
+
+can even combine ~ and ^
+
+types of tag
+1. lightweight - simple ref
+2. annotated tag - can include metadata - eg text, author etc
+
+can even signoff on annotated tags
+
+git tag - to see what tags in repo
+
+git show v0.1
+
+git tag v0.1
+
+by default will tag where you currently are - the HEAD
+
+could tag parent of HEAD by using git tag HEAD~
+
+
+annotated tagging:
+
+git tag -a -m "my msg" v0.1
+
+can also use - a with -F <file>
+
+- a - means annotated tag
+
+
+git push <remote> <tagname>
+
+or to push all your tags
+
+git push origin --tags
 
 
 
