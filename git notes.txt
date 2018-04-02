@@ -65,7 +65,145 @@ on github you can't do the git init --bare I don't think so you setup first ther
 
 git clone https://github.com/arcomber/git_course.git
 
+then you can edit some files etc. I added a git notes.txt file and committed.
 
+then magically git seems to remember where you cloned from and so when you push it knows where to push to.
+
+just do : git push
+
+
+...
+Scenario 2 - already have a local repo
+
+git remote add <name> <url>
+
+eg create a repo on github
+
+then locally:
+git remote add origin https://github.com/arcomber/git_course.git
+
+by default there is a single branch called master
+
+git push purpose:
+1) share your work with other team members
+2) backup of work
+
+full cmd: git push origin master
+
+but can use defaults/previous : just git push
+
+git push -u origin master
+
+-u - sets up tracking relationship between 
+
+-u is like setting --set-upstream
+
+remote repo is name origin.
+branch is named master
+
+
+...
+review of working with a remote repo
+
+git clone - if you don't yet have a local repo.
+git remote add - if you have a local repo already
+
+...
+
+graph
+-----
+
+a way to model connected things.
+
+node and edge
+
+directed graph - arrows to show direction.
+
+grandparent ->parent->you
+
+acyclic - no cycles
+
+git is a DAG
+
+can do merges - but no cycles in git.
+
+arrows point to a commits parents.
+
+commits and relationships between them form the projects history.
+
+git log --oneline --graph
+
+
+git uses a DAG to represent commit history.
+
+commits point to their parent commits.
+
+
+...
+
+git objects - 4 types of things
+1. commit object - user info, commit msg, ref to parent, ref to root tree of project - that is all that git needs to rebuild the full contents of the commit.
+
+2. annotated tag - ref to a specific commit
+
+3. tree - list of filenames inside of a directory
+
+4. blob - contents of a file in the project.
+
+
+git id - name of a git object.
+
+40 char hex string. git id also known as object ids, SHA-1s, hashes and checksum.
+
+that hex string is the name of a git object.
+
+mathematical computation based ont he content.
+
+exact same content will result in same sha-1 value.
+
+small change in content results in a big difference in sha-1 string.
+
+git hash-object <file> - to create a SHA-1 for any content
+
+echo "hi">filea.txt
+git hash-object filea.txt
+$ git hash-object filea.txt
+45b983be36b73c0788dc9cbcb76cbb80fc7bb057
+$ echo "hi ">filea.txt
+$ git hash-object filea.txt
+0b5d6ed361eb779d2212ec820ea5568f3af7762b
+
+
+git hash-object is a low-level command - not often used but useful for scripts.
+
+git object names are also known as git ids.
+
+
+master is the default name of the main branch in the repo.
+
+
+HEAD is a reference to the current commit.
+
+NOTE - not necessarily the tip of the branch.  
+
+only 1 HEAD per repo.
+
+
+x-x-x
+    ^
+    |
+   HEAD
+
+
+tag - eg can mark a commit v1.0
+
+sourcetree - has a push tag option - so can also push any tags you have locally set.
+
+tags are not automatically pushed to remote repositories.
+
+
+References
+----------
 
 
 
